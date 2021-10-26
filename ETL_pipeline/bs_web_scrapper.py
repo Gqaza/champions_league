@@ -1,15 +1,15 @@
 # %%
 from bs4 import BeautifulSoup as bs
 import pandas as pd
+import requests
 
 
-r = bs.get("https://www.skysports.com/champions-league-table/2020")
-soup = bs(r.text, "lxml")
+r = requests.get("https://www.skysports.com/champions-league-table/2020").content
+soup = bs(r, "html.parser")
 
 # %%
 tables = soup.findAll("table", class_="standing-table__table")
 
-# %%
 headers_html = tables[0].find_all('th')
 headers = [header.text for header in headers_html][:-1]
 
