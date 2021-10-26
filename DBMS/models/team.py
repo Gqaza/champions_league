@@ -11,7 +11,7 @@ class Team(db.Model):
     name = db.Column(
         db.String(128)
     )
-    country = db.Column(
+    league = db.Column(
         db.String
     )
 
