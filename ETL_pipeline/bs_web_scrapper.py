@@ -4,6 +4,38 @@ import pandas as pd
 import requests
 
 
+# %%
+# Scrap teams data
+res = requests.get(
+    "https://www.skysports.com/football/teams"
+).content
+soup = bs(res, "html.parser")
+
+
+league_teams_df = pd.DataFrame(
+    columns=["team", "league"]
+)
+leagues = soup.findAll("optgroup")
+for league in leagues:
+    league_name = league.get("label")
+    teams = league.findAll("option", class_="page-nav__select-option")
+    dict_ = {}
+    for team in teams:
+        dict_['team'] = team.text
+        dict_['league'] = league_name
+        league_teams_df = league_teams_df.append(
+            dict_, ignore_index=True
+        )
+
+league_teams_df.head()
+
+# %%
+"""
+Add data to db
+"""
+
+
+# %%
 r = requests.get("https://www.skysports.com/champions-league-table/2020").content  # noqa E501
 soup = bs(r, "html.parser")
 
@@ -61,30 +93,8 @@ TODO :
     4. Update the get data for the following tables: player & team
 
 """
-# %%
-# Scrap teams 
-res = requests.get(
-    "https://www.skysports.com/football/teams"
-).content
-soup = bs(res, "html.parser")
 
 # %%
-league_teams_df = pd.DataFrame(
-    columns=["team", "league"]
-)
-leagues = soup.findAll("optgroup")
-for league in leagues:
-    league_name = league.get("label")
-    teams = league.findAll("option", class_="page-nav__select-option")
-    dict_ = {}
-    for team in teams:
-        dict_['team'] = team.text
-        dict_['league'] = league_name
-        league_teams_df = league_teams_df.append(
-            dict_, ignore_index=True
-        )
 
-# %%
-league_teams_df.head()
 
 # %%
