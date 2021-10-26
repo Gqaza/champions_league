@@ -41,7 +41,7 @@ df.head()
 # %%
 
 """
-TODO : 
+TODO :
 
     1. format the data accordingly (e.g. df.Team)
     2. Update df.columns to match column names reflected in the models
