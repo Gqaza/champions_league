@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 
 
-r = requests.get("https://www.skysports.com/champions-league-table/2020").content
+r = requests.get("https://www.skysports.com/champions-league-table/2020").content  # noqa E501
 soup = bs(r, "html.parser")
 
 # %%
