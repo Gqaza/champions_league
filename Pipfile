@@ -15,7 +15,10 @@ flask-script = "*"
 flask-sqlalchemy = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
-selenium = "*"
+ipykernel = "*"
+webdriver-manager = "*"
+beautifulsoup4 = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.9"
