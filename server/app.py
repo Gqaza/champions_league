@@ -14,4 +14,9 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{db_user}:{db_password}@{
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+from models.group import Group  # noqa F401
+from models.player import Player # noqa F401
+from models.team import Team  # noqa F401
+
 migrate = Migrate(app, db)
