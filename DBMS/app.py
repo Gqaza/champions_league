@@ -15,7 +15,3 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-from models.group import Group  # noqa E23
-from models.player import Player # noqa E23
-from models.team import Team  # noqa E23

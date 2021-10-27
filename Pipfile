@@ -19,6 +19,7 @@ ipykernel = "*"
 webdriver-manager = "*"
 beautifulsoup4 = "*"
 pandas = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.9"

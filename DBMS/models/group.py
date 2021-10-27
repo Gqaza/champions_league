@@ -2,8 +2,7 @@ from app import db
 
 
 class Group(db.Model):
-    __tablename__ = 'group'
-
+    __tablename__ = 'champions_league_groups'
     id = db.Column(
         db.Integer,
         primary_key=True
@@ -36,4 +35,7 @@ class Group(db.Model):
     )
     league_position = db.Column(
         db.Integer
+    )
+    group_names = db.Column(
+        db.String(1)
     )
